@@ -1,4 +1,5 @@
 const User = require('../models/userModel')
+const jwt = require('jsonwebtoken')
 const { hashPassword, comparePassword } = require('../utils/hashPassword')
 
 const userSignup = async (req, res) => {
@@ -15,7 +16,9 @@ const userSignup = async (req, res) => {
     })
   
     await newUser.save()
-    res.status(201).json({message: 'User created successfully'})
+    const token = jwt.sign({email}, process.env.JWT_SECRET_KEY)
+
+    res.status(201).json({message: 'User created successfully', token: token})
   }
 }
 
@@ -25,7 +28,8 @@ const userLogin = async (req, res) => {
   if(userCheck) {
     let passwordCheck = await comparePassword(password, userCheck.password)
     if(passwordCheck) {
-      res.status(200).json({message: 'User credential matched'})
+      const token = jwt.sign({email}, process.env.JWT_SECRET_KEY)
+      res.status(200).json({message: 'User credential matched', token: token})
     } else {
       res.status(401).json({message: 'Password incorrect'})
     }
