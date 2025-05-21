@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 
+//function middleware to check for user authentication
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization
   if(!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -15,6 +16,7 @@ const verifyToken = (req, res, next) => {
     next()
   } catch (error) {
     console.error(error)
+    res.status(500).json({message: 'Error in verifyToken'})
   }
 }
 

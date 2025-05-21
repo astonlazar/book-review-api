@@ -2,6 +2,8 @@ const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 const { hashPassword, comparePassword } = require('../utils/hashPassword')
 
+
+//function to user Signup
 const userSignup = async (req, res) => {
   const {username, email, password} = req.body
   const userCheck = await User.findOne({email: email})
@@ -22,6 +24,7 @@ const userSignup = async (req, res) => {
   }
 }
 
+//function to user Login
 const userLogin = async (req, res) => {
   const {email, password} = req.body
   const userCheck = await User.findOne({email: email})
