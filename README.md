@@ -9,13 +9,17 @@ A RESTful API for managing and reviewing books. Built with Node.js, Express, and
 - JWT for authentication
 - dotenv for configuration
 
+## 📊 ER Diagram
+![image](https://github.com/user-attachments/assets/07ac63ac-20da-4d53-95ee-c4934847178c)
+
+
 ## 🚀 Getting Started
 
 Follow these steps to set up and run the project locally.
 
 ### 1. 📥 Clone the Repository
 ```
-git clone https://github.com/your-username/book-review-api.git
+git clone https://github.com/astonlazar/book-review-api.git
 cd book-review-api
 ```
 
