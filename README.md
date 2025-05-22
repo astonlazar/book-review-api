@@ -12,6 +12,8 @@ A RESTful API for managing and reviewing books. Built with Node.js, Express, and
 ## 📊 ER Diagram
 ![image](https://github.com/user-attachments/assets/07ac63ac-20da-4d53-95ee-c4934847178c)
 
+## API Documentation (Postman)
+Link - https://documenter.getpostman.com/view/34168578/2sB2qahLzD
 
 ## 🚀 Getting Started
 
