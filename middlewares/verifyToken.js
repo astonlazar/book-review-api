@@ -11,11 +11,9 @@ const verifyToken = (req, res, next) => {
 
   try {
     const decode = jwt.decode(token)
-    console.log('decoded details -', decode)
     req.user = decode
     next()
   } catch (error) {
-    console.error(error)
     res.status(500).json({message: 'Error in verifyToken'})
   }
 }

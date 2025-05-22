@@ -95,7 +95,6 @@ const addBook = async (req, res) => {
     }
   } catch(err) {
     res.status(500).json({message: 'Server Error'})
-    console.log('Error in addBook', err)
   }
   res.status(200).json({message: 'Worked'})
 }

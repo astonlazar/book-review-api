@@ -7,7 +7,6 @@ const submitReview = async (req, res) => {
     const bookId = req.params.id
     const {review, rating} = req.body
     const userEmail = req.user.email
-    console.log(bookId, review, rating)
 
     const bookData = await Book.findById(bookId)
     const userData = await User.findOne({email: userEmail})
@@ -35,7 +34,6 @@ const submitReview = async (req, res) => {
       return
     }
   } catch (error) {
-    console.error('error in submitReview -', error)
     res.status(500).json({message: 'Server Error'})
   }
 }
@@ -48,7 +46,6 @@ const updateReview = async (req, res) => {
     const userEmail = req.user.email
     const bookData = await Book.findById(bookId)
     const userData = await User.findOne({email: userEmail})
-    console.log(bookId, userEmail, userData)
   
     //checking if book or data is present
     if(!bookData || !userData) {
